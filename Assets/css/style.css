@@ -1,0 +1,43 @@
+* {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+
+
+
+.quiz-name-div {
+   display: flex;
+   flex-direction: column;
+   flex-wrap: wrap;
+   align-items: center; 
+   border-style: solid;
+   text-align: center;
+   border-color: black;
+   border-width: 2px;
+   border-radius: 5px;
+   margin: 300px 20px;
+}
+
+
+
+.quiz-name {
+    text-align: center;
+    width: 200px;
+}
+
+.quiz-description {
+    
+}
+
+.start-button {
+    background-color: #6c4c72;
+    color: #f2edf3;
+    margin: 20px;
+    border-radius: 5px;
+    padding: 12px;
+}
+
+
+
+/* add a pseudo class for button hover */
+/* #a685ad #f2edf3color for later */
