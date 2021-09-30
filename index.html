@@ -11,25 +11,29 @@
 
     <header class="quiz-header">
         <span class="high-score">See High Scores</span>
-        <span class="time-left">80s left</span>
+        <span class="time-left" id="countdown">90s left</span>
     </header>
 
-    <div class="quiz-name-div">
+    <div id="quiz-name-div">
             <h1 class="quiz-name">Code Quiz</h1>
             <h2 class="quiz-description">Answer some questions about Javascript!</h2>
-            <button type="button" class="start-button">Let's Start!</button>
+            <h3 class="quiz-rules">Keep in mind that each incorrect answer will deduct 10s from your time.</h3>
+            <button type="button" id="start-button">Let's Start!</button>
     </div>
 
-    <div class="question-one">
-        <div><h1 class="quiz-question">Question 1</h1></div>
+
+    <div id="hidden-question">
+    <div id="question-one">
+        <div><h1 class="quiz-question">Which of the following is not the way to declare a JavaScript Variable?</h1></div>
         <div class="question-row-top">
-        <button type="button" class="question-button">Button 1</button>
-        <button type="button" class="question-button">Button 2</button>
+        <button type="button" class="question-button-wrong">Var</button>
+        <button type="button" class="question-button-wrong">Let</button>
         </div>
         <div class="question-row-bottom">
-        <button type="button" class="question-button">Button 3</button>
-        <button type="button" class="question-button">Button 4</button>
+        <button type="button" class="question-button-right">Variable</button>
+        <button type="button" class="question-button-wrong">Const</button>
         </div>
+    </div>
     </div>
 
     <div class="question-two">

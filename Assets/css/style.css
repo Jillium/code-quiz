@@ -28,7 +28,7 @@
 
 
 
-.quiz-name-div {
+#quiz-name-div {
    display: flex;
    flex-direction: column;
    flex-wrap: wrap;
@@ -46,10 +46,14 @@
 }
 
 .quiz-description {
-    
+    font-weight: lighter;
 }
 
-.start-button {
+.quiz-rules {
+    font-weight: lighter;
+}
+
+#start-button {
     background-color: #6c4c72;
     color: #f2edf3;
     margin: 20px;
@@ -58,11 +62,15 @@
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-.start-button:hover {
+#start-button:hover {
     background-color: #dac700;
 }
 
-.question-one {
+#hidden-question {
+    display: none;
+}
+
+#question-one {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -77,6 +85,7 @@
 .quiz-question {
     flex-wrap: wrap;
     font-weight: bolder;
+    text-align: center;
 }
 
 .question-row-top {
@@ -87,17 +96,33 @@
     flex-wrap: wrap;
 }
 
-.question-button {
+.question-button-wrong {
     margin: 20px;
     background-color: #6c4c72;
     color: #f2edf3;
-    margin: 20px;
+    width: 200px;
+    height: 40px;
     border-radius: 5px;
     padding: 12px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-.question-button:hover {
+.question-button-right {
+    margin: 20px;
+    background-color: #6c4c72;
+    color: #f2edf3;
+    width: 200px;
+    height: 40px;
+    border-radius: 5px;
+    padding: 12px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; 
+}
+
+.question-button-right:hover {
+    background-color: #dac700;
+}
+
+.question-button-wrong:hover {
     background-color: #dac700;
 }
 /* add a pseudo class for button hover */
