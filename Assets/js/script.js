@@ -1,63 +1,95 @@
 var timerEl = document.getElementById("countdown");
 var quizDivEl = document.getElementById("quiz-name-div");
-var quizQuestEl = document.getElementById("hidden-question");
-// var score = 0;
+var quizQuestEl = document.getElementById("hidden-container");
 
+ 
 // questions and answers stored as object 
-var quizQuestions = 
+var quizQuestions = [
     {
     title: 'Which of the following is not the way to declare a Javascript variable?',
     options: ['Var', 'Let', 'Variable', 'Const'],
-    correctAnswer: 2,
-    }
-    // {
-    // title: 'Which of the following is not a Javascript Data Type?',
-    // options: ['Data', 'Number', 'String', 'Object'],
-    // correctAnswer: 0,    
-    // },
-    // {
-    // title: 'How do you start a comment in Javascript?',
-    // options: ['<!--', '//', 'Comment', '/*'],
-    // correctAnswer: 1,    
-    // },
-    // {
-    // title: 'Which Javascript data type can only have a value of true/false?',
-    // options: ['Number', 'bigInt', 'Boolean', 'Object'],
-    // correctAnswer: 2,    
-    // }
-// ];
+    correctAnswer: '2',
+    },
+    {
+    title: 'Which of the following is not a Javascript Data Type?',
+    options: ['Data', 'Number', 'String', 'Object'],
+    correctAnswer: '0',    
+    },
+    {
+    title: 'How do you start a comment in Javascript?',
+    options: ['<!--', '//', 'Comment', '/*'],
+    correctAnswer: '1',    
+    },
+    {
+    title: 'Which Javascript data type can only have a value of true/false?',
+    options: ['Number', 'bigInt', 'Boolean', 'Object'],
+    correctAnswer: '2',    
+    },
+];
 
-// for(var i=0; i < quizQuestions.length; i++) {
-//function to put quizquestions on the page 
-function askQuizQuestion () {
-    var quizQuestionsDiv = document.getElementById("question-div");
-    quizQuestionsDiv.textContent = quizQuestions.title;
-    var answersOptions = document.querySelectorAll('.answers');
-    answersOptions.forEach(function(element, index) {
-        element.textContent = quizQuestions.options[element, index];
-    });
+
+// for (var i = 0; i < quizQuestions[0].options.length; i++) {
+    // var quizQuestEl = document.createElement('h3');
+    // var h3 = document.innerHtml('<h3>')
+    // quizQuestEl.appendChild(h3);
+    // console.log(h3);
+
+    
+    
+    
+    
+    
+
+    
+// }
+// for(var i=0; i < quizQuestions[0].options.length; i++) {
+// // function to put quizquestions on the page 
+// function askQuizQuestion () {
+//     var quizQuestionsDiv = document.getElementById("question-div");
+//     quizQuestionsDiv.textContent = quizQuestions.title;
+//     var answersOptions = document.querySelectorAll('.answers');
+//     answersOptions.forEach(function(element, index) {
+//         element.textContent = quizQuestions[0].options[i];
+//     });
    
-}
+// }
 // };
 
-askQuizQuestion ();
+
 
 
 //When I click start the countdown timer starts counting
 //When I click start the first question also appears 
 
-var btn = document.getElementById("start-button");
-btn.addEventListener("click", function() {
-    quizDivEl.setAttribute("style", "display:none");
-    quizQuestEl.setAttribute("style", "display: block");
-
-
+function questionsStart() {
+    var startButton = document.getElementById("start-button");
+    startButton.addEventListener("click", function() {
+        quizDivEl.setAttribute("style", "display:none");
+        quizQuestEl.setAttribute("style", "display: block");
+    })
 
     countdownTimer();
-})
+}
+
+questionsStart();
+
+//loop through questions after next is selected 
+function nextQuestion () {
+    var nextButton = document.getElementById('next-button');
+    nextButton.addEventListener("click", function () {
+        // for loop goes here? 
+    } )
+
+}
+
+function answerChosen () {
+// if correct add to score if incorrect subtract from score and take time off counter
+}
 
 
 
+
+// timer countdown function
 function countdownTimer () {
     var timeLeft = 90;
 

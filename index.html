@@ -21,32 +21,25 @@
             <button type="button" id="start-button">Let's Start!</button>
     </div>
 
-
-    <!-- <div id="hidden-question"> -->
-    <!-- <div id="question-one"> -->
-        <!-- <div><h1 class="quiz-question">Which of the following is not the way to declare a JavaScript Variable?</h1></div> -->
-        <!-- <div class="question-row-top"> -->
-        <!-- <button type="button" class="question-button-wrong">Var</button> -->
-        <!-- <button type="button" class="question-button-wrong">Let</button> -->
-        <!-- </div> -->
-        <!-- <div class="question-row-bottom"> -->
-        <!-- <button type="button" class="question-button-right">Variable</button> -->
-        <!-- <button type="button" class="question-button-wrong">Const</button> -->
-        <!-- </div> -->
-    <!-- </div> -->
-    <!-- </div> -->
-
-    <div id="hidden-question">
-    <div id="question-div"></div>
-        <ul class="quiz-question">
-            <button class="answers"></button>
-            <button class="answers"></button>
-            <button class="answers"></button>
-            <button class="answers"></button>
-            
-            
-        </ul>
+    <!-- container div for quiz-->
+    <div id="hidden-container">
+        <div id="quiz-question-container" class="hide">
+            <div id="quiz-question">Question</div>
+                <div id="answer-buttons">
+                    <button type="button" class="answers">One</button>
+                    <button type="button" class="answers">Two</button>
+                    <button type="button" class="answers">Three</button>
+                    <button type="button" class="answers">Four</button>
+                </div>
         </div>
+        <div class="next-button">
+            <button type="button" id="next-button">Next</button>
+        </div>
+    </div>
+
+   
+
+   
 
     
 
