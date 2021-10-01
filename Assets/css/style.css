@@ -70,13 +70,15 @@
     display: none;
 }
 
-#question-one {
+#question-div {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     align-content: center;
     justify-content: center;
     align-items: center;
+    font-weight: bold;
+    margin: 100px 20px;
 
 
 }
@@ -96,7 +98,7 @@
     flex-wrap: wrap;
 }
 
-.question-button-wrong {
+.answers {
     margin: 20px;
     background-color: #6c4c72;
     color: #f2edf3;
@@ -107,18 +109,9 @@
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-.question-button-right {
-    margin: 20px;
-    background-color: #6c4c72;
-    color: #f2edf3;
-    width: 200px;
-    height: 40px;
-    border-radius: 5px;
-    padding: 12px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; 
-}
 
-.question-button-right:hover {
+
+.answers:hover {
     background-color: #dac700;
 }
 
