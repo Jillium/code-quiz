@@ -1,8 +1,13 @@
 var timerEl = document.getElementById("countdown");
 var quizDivEl = document.getElementById("quiz-name-div");
 var quizQuestEl = document.getElementById("hidden-container");
+var questionsEl = document.getElementById("quiz-question");
+var answersEl = document.getElementById("answer-buttons");
+var answerButtons = document.querySelectorAll(".answers")
+var currentQuestion, currentQuestionIndex;
+var currentAnswers, currentAnswerIndex;
 
- 
+
 // questions and answers stored as object 
 var quizQuestions = [
     {
@@ -66,21 +71,47 @@ function questionsStart() {
     startButton.addEventListener("click", function() {
         quizDivEl.setAttribute("style", "display:none");
         quizQuestEl.setAttribute("style", "display: block");
+        currentQuestion = quizQuestions[0].title;
+        
+        
+        askQuestion();
     })
 
-    countdownTimer();
+    
 }
 
 questionsStart();
 
 //loop through questions after next is selected 
-function nextQuestion () {
-    var nextButton = document.getElementById('next-button');
-    nextButton.addEventListener("click", function () {
-        // for loop goes here? 
-    } )
+function askQuestion () {
+    
+    for (let i = 0; i < quizQuestions[0].title.length; i++) {
+        questionsEl.innerText = quizQuestions[0].title;
+        console.log(quizQuestions[0].title[i]);
+    } 
+    
+    
+    for (let j = 0; j < quizQuestions[0].options.length; j++) {
+        let btn = document.createElement("button");
+        btn.setAttribute("class", "answers");
+        btn.innerHTML = quizQuestions[j].options[j]
+        document.body.appendChild(btn);
+        console.log(quizQuestions[0].options[j]);
+    }
+    
+    
+    
+    
+   
+    
+    
+
+
+  
 
 }
+
+
 
 function answerChosen () {
 // if correct add to score if incorrect subtract from score and take time off counter
