@@ -66,6 +66,19 @@
     background-color: #dac700;
 }
 
+#next-button {
+    background-color: #6c4c72;
+    color: #f2edf3;
+    margin: 20px;
+    border-radius: 5px;
+    padding: 12px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif';
+}
+
+#next-button:hover {
+    background-color: #dac700;
+}
+
 
 
 #quiz-question-container {
