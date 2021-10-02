@@ -2,42 +2,39 @@ var timerEl = document.getElementById("countdown");
 var quizDivEl = document.getElementById("quiz-name-div");
 var quizQuestEl = document.getElementById("hidden-container");
 var questionsEl = document.getElementById("quiz-question");
-var answersEl = document.getElementById("answer-buttons");
 var answerButtons = document.querySelectorAll(".answers")
 var currentQuestion, currentQuestionIndex;
 var currentAnswers, currentAnswerIndex;
+
+var score = 0;
 
 
 // questions and answers stored as object 
 var quizQuestions = [
     {
-    title: 'Which of the following is not the way to declare a Javascript variable?',
+    title: ["Which of the following is not the way to declare a Javascript variable?"],
     options: ['Var', 'Let', 'Variable', 'Const'],
-    correctAnswer: '2',
+    correctAnswer: ['Variable'],
     },
     {
-    title: 'Which of the following is not a Javascript Data Type?',
+    title: ["Which of the following is not a Javascript Data Type?"],
     options: ['Data', 'Number', 'String', 'Object'],
-    correctAnswer: '0',    
+    correctAnswer: ['Data'],    
     },
     {
-    title: 'How do you start a comment in Javascript?',
+    title: ["How do you start a comment in Javascript?"],
     options: ['<!--', '//', 'Comment', '/*'],
-    correctAnswer: '1',    
+    correctAnswer: ['//'],    
     },
     {
-    title: 'Which Javascript data type can only have a value of true/false?',
+    title: ["Which Javascript data type can only have a value of true/false?"],
     options: ['Number', 'bigInt', 'Boolean', 'Object'],
-    correctAnswer: '2',    
+    correctAnswer: ['Boolean'],    
     },
 ];
 
 
-// for (var i = 0; i < quizQuestions[0].options.length; i++) {
-    // var quizQuestEl = document.createElement('h3');
-    // var h3 = document.innerHtml('<h3>')
-    // quizQuestEl.appendChild(h3);
-    // console.log(h3);
+
 
     
     
@@ -45,20 +42,7 @@ var quizQuestions = [
     
     
 
-    
-// }
-// for(var i=0; i < quizQuestions[0].options.length; i++) {
-// // function to put quizquestions on the page 
-// function askQuizQuestion () {
-//     var quizQuestionsDiv = document.getElementById("question-div");
-//     quizQuestionsDiv.textContent = quizQuestions.title;
-//     var answersOptions = document.querySelectorAll('.answers');
-//     answersOptions.forEach(function(element, index) {
-//         element.textContent = quizQuestions[0].options[i];
-//     });
-   
-// }
-// };
+
 
 
 
@@ -73,7 +57,7 @@ function questionsStart() {
         quizQuestEl.setAttribute("style", "display: block");
         currentQuestion = quizQuestions[0].title;
         
-        
+        countdownTimer();
         askQuestion();
     })
 
@@ -85,21 +69,33 @@ questionsStart();
 //loop through questions after next is selected 
 function askQuestion () {
     
+    
+    // determines quiz question
     for (let i = 0; i < quizQuestions[0].title.length; i++) {
-        questionsEl.innerText = quizQuestions[0].title;
-        console.log(quizQuestions[0].title[i]);
-    } 
-    
-    
-    for (let j = 0; j < quizQuestions[0].options.length; j++) {
+        questionsEl.innerText = quizQuestions[i].title[i];
+    // determines answers on buttons     
+    for (let j = 0; j < quizQuestions[i].options.length; j++) {
         let btn = document.createElement("button");
         btn.setAttribute("class", "answers");
-        btn.innerHTML = quizQuestions[j].options[j]
-        document.body.appendChild(btn);
-        console.log(quizQuestions[0].options[j]);
+        btn.textContent = quizQuestions[i].options[j];
+        
+        
+        btn.addEventListener("click", function(event) {
+           
+        if (event.target === quizQuestions[i].correctAnswer[0]) {
+            console.log("you are right!");
+            score++
+        }
+        else {
+            console.log("you are wrong");
+            score--
+        }
+        })
+        quizQuestEl.appendChild(btn); 
+       
     }
     
-    
+}
     
     
    
@@ -113,9 +109,7 @@ function askQuestion () {
 
 
 
-function answerChosen () {
-// if correct add to score if incorrect subtract from score and take time off counter
-}
+
 
 
 
