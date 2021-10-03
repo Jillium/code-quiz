@@ -2,10 +2,10 @@ var timerEl = document.getElementById("countdown");
 var quizDivEl = document.getElementById("quiz-name-div");
 var quizQuestEl = document.getElementById("hidden-container");
 var questionsEl = document.getElementById("quiz-question");
-var answerButtons = document.querySelectorAll(".answers");
-var resultsH3 = document.getElementById("results-id");
-var nextButton = document.querySelectorAll("next-button");
-var flexEl = document.getElementsByClassName("flex-container");
+var correctEl = document.getElementById("correct");
+var incorrectEl = document.getElementById("incorrect");
+
+
 
 var score = 0;
 
@@ -77,10 +77,12 @@ for (let i =0; i < quizQuestions[0].title.length; i++) {
     
 
     var currentQuestion = quizQuestions[i].title[i];
+    
 
     for (let j = 0; j <quizQuestions[i].options.length; j++) {
         
         var currentAnswers = quizQuestions[i].options[j];
+        
         
         nextQuestion(currentQuestion, currentAnswers);  
     }
@@ -111,9 +113,10 @@ function nextQuestion(currentQuestion, currentAnswers) {
 
     btn.addEventListener("click", function(event) {
         if (event.targetInnerText === currentQuestion.correctAnswer) {
-            console.log("you are correct!");
+            
             score++
-            console.log(score);
+            
+            
         }
         else {
             console.log("incorrect");

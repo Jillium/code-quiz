@@ -124,6 +124,15 @@
     background-color: #dac700;
 }
 
+#correct {
+    display: none;
+
+}
+
+#incorrect {
+    display: none;
+}
+
 
 .question-button-wrong:hover {
     background-color: #dac700;
