@@ -13,11 +13,13 @@ var quizQuestEl = document.getElementById("hidden-container");
 var questionTextEl = document.getElementById("question-text");
 var quizScoreEl = document.getElementById("hidden-score-container");
 var submitButton = document.getElementById("submit-button");
+var controlsEl = document.getElementById("hidden-controls-container");
 
 // placekeeper for the store 
 var score = 0;
 var currentQuestion = 0;
 var currentAnswers = 0;
+var q = 0;
 
 // questions and answers stored as object
 var quizQuestions = [
@@ -64,6 +66,7 @@ function quizStart() {
     startButton.addEventListener("click", function() {
         quizDivEl.setAttribute("style", "display:none");
         quizQuestEl.setAttribute("style", "display: block");
+        controlsEl.setAttribute("style", "display: block;");
         
         
         
@@ -88,17 +91,6 @@ function displayQuestion() {
     
 }
 
-function nextQuestion (currentQuestion) {
-    if ( q<quizQuestions.title.length-1) {
-        q=q+1
-        displayQuestion();
-    }
-    else {
-        //make a hidden div for the score
-        //have this display once questions have been looped through
-    }
-}
-
 
 
 
@@ -106,10 +98,13 @@ function nextQuestion (currentQuestion) {
 
 
 //when next button is clicked next question is generated
-nextButton.addEventListener("click", function() {
-    console.log("i was clicked!");
+function nextQuestion () {
 
-}) 
+    //logic to print next question to the html
+    console.log("I was clicked");
+    }
+
+nextButton.addEventListener("click", nextQuestion);
 
 
 submitButton.addEventListener("click", function () {

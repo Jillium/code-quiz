@@ -142,18 +142,27 @@
     background-color: #dac700;
 }
 
-#correct {
-    display: none;
-
+.results {
+    text-decoration: underline;
+    color: #6c4c72;
 }
 
-#incorrect {
-    display: none;
+/* #hidden-correct { */
+    /* display: none; */
+/* } */
+
+/* #hidden-incorrect { */
+    /* display: none; */
+/* } */
+
+
+
+.controls {
+    display: flex;
 }
 
-
-.question-button-wrong:hover {
-    background-color: #dac700;
+#hidden-controls-container {
+    display: none;
 }
 /* add a pseudo class for button hover */
 /* #a685ad #f2edf3color for later */
