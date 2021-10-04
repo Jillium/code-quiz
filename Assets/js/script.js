@@ -1,34 +1,43 @@
+// elements on the page that we will manipuolate
+var startButton = document.getElementById("start-button");
 var timerEl = document.getElementById("countdown");
+var option1Button = document.getElementById("option1");
+var option2Button = document.getElementById("option2");
+var option3Button = document.getElementById("option3");
+var option4Button = document.getElementById("option4");
+var nextButton = document.getElementById("next-button");
+var spanCorrect = document.getElementById("correct");
+var spanIncorrect = document.getElementById("incorrect");
 var quizDivEl = document.getElementById("quiz-name-div");
 var quizQuestEl = document.getElementById("hidden-container");
-var questionsEl = document.getElementById("quiz-question");
-var correctEl = document.getElementById("correct");
-var incorrectEl = document.getElementById("incorrect");
+var questionTextEl = document.getElementById("question-text");
+var quizScoreEl = document.getElementById("hidden-score-container");
+var submitButton = document.getElementById("submit-button");
 
-
-
+// placekeeper for the store 
 var score = 0;
+var currentQuestion = 0;
+var currentAnswers = 0;
 
-
-// questions and answers stored as object 
-  var quizQuestions = [
+// questions and answers stored as object
+var quizQuestions = [
     {
-    title: ["Which of the following is not the way to declare a Javascript variable?"],
+    title: 'Which of the following is not the way to declare a Javascript variable?',
     options: ['Var', 'Let', 'Variable', 'Const'],
     correctAnswer: 'Variable',
     },
     {
-    title: ["Which of the following is not a Javascript Data Type?"],
+    title: 'Which of the following is not a Javascript Data Type?',
     options: ['Data', 'Number', 'String', 'Object'],
     correctAnswer: 'Data',    
     },
     {
-    title: ["How do you start a comment in Javascript?"],
+    title: 'How do you start a comment in Javascript?',
     options: ['<!--', '//', 'Comment', '/*'],
     correctAnswer: '//',    
     },
     {
-    title: ["Which Javascript data type can only have a value of true/false?"],
+    title: 'Which Javascript data type can only have a value of true/false?',
     options: ['Number', 'bigInt', 'Boolean', 'Object'],
     correctAnswer: 'Boolean',    
     }
@@ -52,82 +61,64 @@ var score = 0;
 //When I click start the first question also appears 
 
 function quizStart() {
-    var startButton = document.getElementById("start-button");
     startButton.addEventListener("click", function() {
         quizDivEl.setAttribute("style", "display:none");
         quizQuestEl.setAttribute("style", "display: block");
         
         
+        
+        
         countdownTimer();
-        generateQuestion();
+        displayQuestion();
     })
 
     
 }
 
 
-
-
-
-
-//loop through questions 
-function generateQuestion () {
-    
-for (let i =0; i < quizQuestions[0].title.length; i++) {
-    
-
-    var currentQuestion = quizQuestions[i].title[i];
-    
-
-    for (let j = 0; j <quizQuestions[i].options.length; j++) {
+// display question and answers to html
+function displayQuestion() {
+    for (var i = 0; i <quizQuestions.length; i++) {
+        currentQuestion = quizQuestions[i].title;
+        questionTextEl.innerText = currentQuestion;
         
-        var currentAnswers = quizQuestions[i].options[j];
+          
         
-        
-        nextQuestion(currentQuestion, currentAnswers);  
     }
     
-    
-}   
-  
+}
 
-
-   
+function nextQuestion (currentQuestion) {
+    if ( q<quizQuestions.title.length-1) {
+        q=q+1
+        displayQuestion();
+    }
+    else {
+        //make a hidden div for the score
+        //have this display once questions have been looped through
+    }
 }
 
 
 
-//function to ask next question
-function nextQuestion(currentQuestion, currentAnswers) {
-    questionsEl.innerText = currentQuestion;
-
-    
-
-    var btn = document.createElement("button");
-    btn.setAttribute("class", "answers");
-    btn.textContent = currentAnswers;
 
 
-    quizQuestEl.appendChild(btn);
-    
 
-    btn.addEventListener("click", function(event) {
-        if (event.targetInnerText === currentQuestion.correctAnswer) {
-            
-            score++
-            
-            
-        }
-        else {
-            console.log("incorrect");
-            score--
-        }
-    })
 
-    
-    
+//when next button is clicked next question is generated
+nextButton.addEventListener("click", function() {
+    console.log("i was clicked!");
 
-}
+}) 
+
+
+submitButton.addEventListener("click", function () {
+    quizQuestEl.setAttribute("style", "display: none;");
+    quizScoreEl.setAttribute("style", "display: block");
+})
+
+
+
 
 
 
@@ -151,17 +142,15 @@ function countdownTimer () {
     }, 1000);
 }
 
-// When I click a wrong answer then wrong answer is displayed and 10 s is taken off the timer
-//Next question appears
+ //if score wrong or correct display result
+    // if wrong take time off the timer 
+    // move to next question
+    //go through questions
+    //score tally @end
+    //text box for initials
+    //save initials and score to local storage
 
-// When I click the correct answer then correct is displayed and the next question appears 
 
-
-
-//score is tallied 
-
-// user is allowed to enter initials to save high score to local storage
-
-//high scores need to be pulled from local storage when high scores is clicked
+    //high scores are availble to be viewed via link
 
 quizStart();

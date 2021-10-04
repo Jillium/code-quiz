@@ -4,42 +4,54 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Assets/css/style.css">
-    <title>Code-Quiz</title>
+    <link rel="stylesheet" href="Assets/css/style.css"
+    <title>Code Quiz</title>
 </head>
 <body>
-
+ 
     <header class="quiz-header">
         <span class="high-score">See High Scores</span>
         <span class="time-left" id="countdown">90s left</span>
     </header>
 
-    <div id="quiz-name-div">
-            <h1 class="quiz-name">Code Quiz</h1>
-            <h2 class="quiz-description">Answer some questions about Javascript!</h2>
-            <h3 class="quiz-rules">Keep in mind that each incorrect answer will deduct 10s from your time.</h3>
-            <button type="button" id="start-button">Let's Start!</button>
-    </div>
 
-    <!-- container div for quiz-->
-    <div class="flex-container">
+<div id="quiz-name-div">
+        <h1 class="quiz-name">Code Quiz</h1>
+        <h2 class="quiz-description">Answer some questions about Javascript!</h2>
+        <h3 class="quiz-rules">Keep in mind that each incorrect answer will deduct 10s from your time.</h3>
+        <button type="button" id="start-button">Let's Start!</button>
+</div>    
+
+<div class="quiz-question-container">
     <div id="hidden-container">
-        <div id="quiz-question-container">
-            <div id="quiz-question">Question</div>
-            
-                
-        </div>
-        
-        
-       
+    <div id="question-text">question</div>
+    <div id="options">
+        <button type="button" id="option1" class="answers">one</button>
+        <button type="button" id="option2" class="answers">two</button>
+        <button type="button" id="option3" class="answers">three</button>
+        <button type="button" id="option4" class="answers">four</button>
     </div>
-    
     </div>
+</div>
 
-    <footer>
-        <span><span id="correct">Correct</span></span>
-        <span id="incorrect"><span>Incorrect</span></span>
-    </footer>
+<div class="quiz-score-container">
+    <div id="hidden-score-container">
+        <div id="score">Score</div>
+    </div>
+</div>
+
+
+<div class="controls">
+    <span class="correct">correct</span>
+    <span class="incorrect">incorrect</span>
+    
+    <button type="button" id="next-button">Next</button>
+    <button type="button" id="submit-button">Submit</button>
+    
+</div>
+</div>
+
+
     
 
 

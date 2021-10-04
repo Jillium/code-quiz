@@ -79,9 +79,23 @@
     background-color: #dac700;
 }
 
+#submit-button {
+    background-color: #6c4c72;
+    color: #f2edf3;
+    margin: 20px;
+    border-radius: 5px;
+    padding: 12px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif';
+}
 
+#submit-button:hover {
+    background-color: #dac700;
+}
 
-#quiz-question-container {
+#hidden-container {
+    display:  none;
+}
+.quiz-question-container {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -94,13 +108,17 @@
     display: none;
 }
 
-.flex-container {
+.quiz-score-container {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     align-items: center; 
     text-align: center;
     margin: 100px 20px;
+}
+
+#hidden-score-container {
+    display: none;
 }
 
 
