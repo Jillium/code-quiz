@@ -14,61 +14,13 @@ var answerButtons = document.getElementsByClassName("answers");
 
 
 
-// placekeeper for the store 
 var score = 0;
-var currentQuestionIndex = 0;
-var currentAnswers = 0;
+
 
 
 // questions and answers stored as object
-var quizQuestions = [
-    {
-        title: 'Which of the following is not the way to declare a Javascript variable?',
-        options: ['Var', 'Let', 'Variable', 'Const'],
-        correctAnswer: 'Variable',
-    },
-    {
-        title: 'Which of the following is not a Javascript Data Type?',
-        options: ['Data', 'Number', 'String', 'Object'],
-        correctAnswer: 'Data',
-    },
-    {
-        title: 'How do you start a comment in Javascript?',
-        options: ['<!--', '//', 'Comment', '/*'],
-        correctAnswer: '//',
-    },
-    {
-        title: 'Which Javascript data type can only have a value of true/false?',
-        options: ['Number', 'bigInt', 'Boolean', 'Object'],
-        correctAnswer: 'Boolean',
-    }
-];
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//When I click start the countdown timer starts counting
-//When I click start the first question also appears 
-
-
-
-
-
-
-
-
-
+var quizQuestions = ['Question One', 'Question two', 'Question three', 'Question 4'];
+index = 0;
 
 
 
@@ -80,34 +32,16 @@ function quizStart() {
         quizDivEl.setAttribute("style", "display:none");
         quizQuestEl.setAttribute("style", "display: block");
         controlsEl.setAttribute("style", "display: block;");
+        questionTextEl.innerText = quizQuestions[0];
+      
+
+
 
       
 
 
 
-        // for (var i = currentQuestion; i < quizQuestions.length;) {
-        //     currentQuestion = quizQuestions[i].title;
-        //     console.log(currentQuestion);
-        //     questionTextEl.innerText = currentQuestion;
 
-        //     for (var j = currentAnswers; j < quizQuestions[i].options.length;) {
-        //         currentAnswers = quizQuestions[i].options[j];
-        //         console.log(currentAnswers);
-        //         let btn = document.createElement('button');
-        //         btn.innerHTML = quizQuestions[i].options[j];
-        //         quizQuestEl.appendChild(btn);
-
-                
-        //     }
-        // }
-
-       
-        // answerButtons.textContent = quizQuestions[0].options[0];
-
-
-
-
-        nextQuestion();
         countdownTimer();
 
     })
@@ -115,28 +49,12 @@ function quizStart() {
 
 }
 
+nextButton.addEventListener("click", nextQuestion);
 
-
-  //when next button is clicked next question is generated
-  function nextQuestion() {
-    //logic to print next question to the html
-    
-    currentQuestion = quizQuestions[currentQuestionIndex].title;
-    currentAnswers = quizQuestions[currentAnswersIndex].options;
-    questionTextEl.innerText = currentQuestion;
-    if (quizQuestions.length > currentQuestion || timeLeft <= 0) {
-        currentQuestion++
-        currentAnswers++
-        questionTextEl.innerText = currentQuestion;
-    }
-    else {
-        // function to end the quiz - also needs to be used with submit button 
-        // call function to end the quiz 
-        
-
-    }
-   
-
+function nextQuestion() {
+    index++;
+    index %= quizQuestions.length
+    questionTextEl.innerText = quizQuestions[index];
 }
 
 
@@ -144,7 +62,7 @@ function quizStart() {
 
 
 
-nextButton.addEventListener("click", nextQuestion)
+
 
 
 submitButton.addEventListener("click", function () {
@@ -157,11 +75,11 @@ submitButton.addEventListener("click", function () {
 
 
 
-
+var timeLeft = 90;
 
 // timer countdown function
 function countdownTimer() {
-    var timeLeft = 90;
+    
 
     // call function to be executed every second or 1000 milliseconds
 
