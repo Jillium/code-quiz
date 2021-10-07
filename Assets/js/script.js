@@ -53,7 +53,7 @@ var buttonThreeIndex = 0;
 var buttonFourIndex = 0;
 var correctAnswersIndex = 0;
 
-console.log(correctAnswersIndex);
+
 
 
 // on startbutton click the questions and answers appear to the page 
@@ -76,6 +76,52 @@ function quizStart() {
         btn4.textContent = buttonFourAnswers[0];
         answerEl.appendChild(btn4);
        
+      
+        
+    btn.addEventListener("click", function (event) {
+        if (event.target.innerText === correctAnswers[index]) {
+            score++;
+            console.log(score);
+        }
+        else {
+            score--;
+            console.log(score);
+        }
+    })
+
+    btn2.addEventListener("click", function(event) {
+        if (event.target.innerText === correctAnswers[index]) {
+            score++;
+            console.log(score);
+        }
+        else {
+            score--;
+            console.log(score);
+        }
+    }) 
+
+    btn3.addEventListener("click", function(event) {
+        if (event.target.innerText === correctAnswers[index]) {
+            score++;
+            console.log(score);
+        }
+        else {
+            score--;
+            console.log(score);
+        }
+    })
+
+    btn4.addEventListener("click", function(event) {
+        if (event.target.innerText === correctAnswers[index]) {
+            score++;
+            console.log(score);
+        }
+        else {
+            score--;
+            console.log(score);
+        }
+    })
+        
 
 
 
@@ -97,10 +143,59 @@ function nextQuestion() {
     index++;
     index %= quizQuestions.length;
     questionTextEl.innerText = quizQuestions[index];
+
+    correctAnswersIndex++;
+    correctAnswersIndex %= correctAnswers.length;
     
-    buttonOneIndex++
+
+    btn.addEventListener("click", function (event) {
+        if (event.target.innerText === correctAnswers[index]) {
+            score+
+            console.log(score);
+        }
+        else {
+            score-
+            console.log(score);
+        }
+    })
+
+    btn2.addEventListener("click", function(event) {
+        if (event.target.innerText === correctAnswers[index]) {
+            score+
+            console.log(score);
+        }
+        else {
+            score-
+            console.log(score);
+        }
+    }) 
+
+    btn3.addEventListener("click", function(event) {
+        if (event.target.innerText === correctAnswers[index]) {
+            score+
+            console.log(score);
+        }
+        else {
+            score-
+            console.log(score);
+        }
+    })
+
+    btn4.addEventListener("click", function(event) {
+        if (event.target.innerText === correctAnswers[index]) {
+            score+
+            console.log(score);
+        }
+        else {
+            score-
+            console.log(score);
+        }
+    })
+
+    buttonOneIndex++;
     buttonOneIndex %= buttonOneAnswers.length;
     btn.textContent = buttonOneAnswers[index];
+   
 
     buttonTwoIndex++
     buttonTwoIndex %= buttonTwoAnswers.length;
@@ -116,10 +211,10 @@ function nextQuestion() {
     
     
     if (index < quizQuestions.length-1) {
-        console.log("there are still questions left");
+        // there are still questions left
     }
     else  {
-        console.log("last question");
+        // last question display score box on next click
         nextButton.setAttribute("style", "display: none;");
         
     }
@@ -128,52 +223,52 @@ function nextQuestion() {
 
 
 //function to tally the score 
-btn.addEventListener("click", function(event) {
-    correctAnswersIndex = 0;
-    if (event.target.textContent === correctAnswers[index]) {
-       score++
+// btn.addEventListener("click", function(event) {
+//     correctAnswersIndex = 0;
+//     if (event.target.textContent === correctAnswers[index]) {
+//        score++
        
-       console.log(score);
-    }
-    else {
-        console.log("Incorrect");
-        score--
-        console.log(score);
-    }
-})
+//        console.log(score);
+//     }
+//     else {
+//         console.log("Incorrect");
+//         score--
+//         console.log(score);
+//     }
+// })
 
-btn2.addEventListener("click", function(event) {
-    if (event.target.textContent === correctAnswers[index]) {
-        score++
-        console.log(score);
-    }
-    else {
-        console.log("incorrect");
-        score--
-    }
-})
+// btn2.addEventListener("click", function(event) {
+//     if (event.target.textContent === correctAnswers[index]) {
+//         score++
+//         console.log(score);
+//     }
+//     else {
+//         console.log("incorrect");
+//         score--
+//     }
+// })
 
-btn3.addEventListener("click", function(event) {
-    if (event.target.textContent === correctAnswers[index]) {
-        score++
-        console.log(score);
-    }
-    else {
-        console.log("incorrect");
-        score--
-    }
-})
+// btn3.addEventListener("click", function(event) {
+//     if (event.target.textContent === correctAnswers[index]) {
+//         score++
+//         console.log(score);
+//     }
+//     else {
+//         console.log("incorrect");
+//         score--
+//     }
+// })
 
-btn4.addEventListener("click", function(event) {
-    if (event.target.textContent === correctAnswers[index]) {
-        score++
-        console.log(score);
-    }
-    else {
-        console.log("incorrect");
-        score--
-    }
-})
+// btn4.addEventListener("click", function(event) {
+//     if (event.target.textContent === correctAnswers[index]) {
+//         score++
+//         console.log(score);
+//     }
+//     else {
+//         console.log("incorrect");
+//         score--
+//     }
+// })
 
 
 
