@@ -11,7 +11,8 @@ var quizScoreEl = document.getElementById("hidden-score-container");
 var submitButton = document.getElementById("submit-button");
 var controlsEl = document.getElementById("hidden-controls-container");
 var answerEl = document.getElementById("options");
-var answerButtons = document.getElementsByClassName("answers");
+var answerButtons = document.querySelectorAll(".answers");
+var correctEl = document.getElementById("correct-answers");
 var btn = document.createElement("button");
 btn.className += "answers";
 var btn2 = document.createElement("button");
@@ -35,17 +36,24 @@ var buttonOneAnswers = ['Cast On', 'Knot', 'Rabbit', 'Number of stitches and row
 var buttonTwoAnswers = ['Kitchener', 'Pearl', 'Cow', 'Thickness of needles'];
 var buttonThreeAnswers = ['Brioche', 'Purl', 'Dog', 'Weight of yarn'];
 var buttonFourAnswers = ['Short Rows', 'Slip', 'Goat', 'Width of yarn'];
+var correctAnswers = ['Kitchener', 'Purl', 'Goat', 'Number of stitches and rows per inch'];
+//correct answers for each question
+// var questionOneCorrectAnswer = 'Kitchener';
+// var questionTwoCorrectAnswer = 'Purl';
+// var questionThreeCorrectAnswer = 'Goat';
+// var questionFourCorrectAnswer = 'Number of stitches and rows per inch';
 
 // index for the questions
-var quizQuestionindex = 0;
+var index = 0;
 
 // indexes for the buttons
 var buttonOneIndex = 0;
 var buttonTwoIndex = 0;
 var buttonThreeIndex = 0;
 var buttonFourIndex = 0;
+var correctAnswersIndex = 0;
 
-
+console.log(correctAnswersIndex);
 
 
 // on startbutton click the questions and answers appear to the page 
@@ -88,9 +96,8 @@ nextButton.addEventListener("click", nextQuestion);
 function nextQuestion() {
     index++;
     index %= quizQuestions.length;
-    // answerIndex++;
-    // answerIndex %= quizAnswers.length;
     questionTextEl.innerText = quizQuestions[index];
+    
     buttonOneIndex++
     buttonOneIndex %= buttonOneAnswers.length;
     btn.textContent = buttonOneAnswers[index];
@@ -107,12 +114,75 @@ function nextQuestion() {
     buttonFourIndex %= buttonFourAnswers.length;
     btn4.textContent = buttonFourAnswers[index];
     
+    
+    if (index < quizQuestions.length-1) {
+        console.log("there are still questions left");
+    }
+    else  {
+        console.log("last question");
+        nextButton.setAttribute("style", "display: none;");
+        
+    }
+    
 }
+
+
+//function to tally the score 
+btn.addEventListener("click", function(event) {
+    correctAnswersIndex = 0;
+    if (event.target.textContent === correctAnswers[index]) {
+       score++
+       
+       console.log(score);
+    }
+    else {
+        console.log("Incorrect");
+        score--
+        console.log(score);
+    }
+})
+
+btn2.addEventListener("click", function(event) {
+    if (event.target.textContent === correctAnswers[index]) {
+        score++
+        console.log(score);
+    }
+    else {
+        console.log("incorrect");
+        score--
+    }
+})
+
+btn3.addEventListener("click", function(event) {
+    if (event.target.textContent === correctAnswers[index]) {
+        score++
+        console.log(score);
+    }
+    else {
+        console.log("incorrect");
+        score--
+    }
+})
+
+btn4.addEventListener("click", function(event) {
+    if (event.target.textContent === correctAnswers[index]) {
+        score++
+        console.log(score);
+    }
+    else {
+        console.log("incorrect");
+        score--
+    }
+})
+
 
 
 
 
 // function to end the quiz 
+function endQuiz() {
+// display score and allow it to be saved to local storage 
+}
 
 
 
@@ -150,7 +220,8 @@ function countdownTimer() {
 
 //if score wrong or correct display result
 // if wrong take time off the timer 
-
+// move to next question
+//go through questions
 //score tally @end
 //text box for initials
 //save initials and score to local storage

@@ -129,9 +129,11 @@
     background-color: #6c4c72;
     color: #f2edf3;
     width: 200px;
-    height: 50px;
+    height: 40px;
     border-radius: 5px;
     padding: 12px;
+    text-align: center;
+    align-items: center;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     
 }
