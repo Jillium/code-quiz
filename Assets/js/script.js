@@ -14,6 +14,8 @@ var answerEl = document.getElementById("options");
 var answerButtons = document.querySelectorAll(".answers");
 var correctEl = document.getElementById("correct-answers");
 var btn = document.createElement("button");
+var correctResultsEl = document.getElementById("hidden-correct");
+var wrongResultsEl = document.getElementById("hidden-incorrect");
 btn.className += "answers";
 var btn2 = document.createElement("button");
 btn2.className += "answers";
@@ -81,44 +83,46 @@ function quizStart() {
     btn.addEventListener("click", function (event) {
         if (event.target.innerText === correctAnswers[index]) {
             score++;
-            console.log(score);
+            correctResultsEl.setAttribute("style", "display: block;");
+            
         }
         else {
             score--;
-            console.log(score);
+            wrongResultsEl.setAttribute("style", "display: block;");
         }
     })
 
     btn2.addEventListener("click", function(event) {
         if (event.target.innerText === correctAnswers[index]) {
             score++;
-            console.log(score);
+            correctResultsEl.setAttribute("style", "display: block;");
+            
         }
         else {
             score--;
-            console.log(score);
+            
         }
     }) 
 
     btn3.addEventListener("click", function(event) {
         if (event.target.innerText === correctAnswers[index]) {
             score++;
-            console.log(score);
+            correctResultsEl.setAttribute("style", "display: block;");
         }
         else {
             score--;
-            console.log(score);
+            wrongResultsEl.setAttribute("style", "display: block;");
         }
     })
 
     btn4.addEventListener("click", function(event) {
         if (event.target.innerText === correctAnswers[index]) {
             score++;
-            console.log(score);
+            correctResultsEl.setAttribute("style", "display: block;");
         }
         else {
             score--;
-            console.log(score);
+            wrongResultsEl.setAttribute("style", "display: block;");
         }
     })
         
@@ -146,51 +150,56 @@ function nextQuestion() {
 
     correctAnswersIndex++;
     correctAnswersIndex %= correctAnswers.length;
+
+    correctResultsEl.setAttribute("style", "display: none;");
+    wrongResultsEl.setAttribute("style", "display: none;");
     
 
     btn.addEventListener("click", function (event) {
         if (event.target.innerText === correctAnswers[index]) {
             score+
-            console.log(score);
+            correctResultsEl.setAttribute("style", "display: block;");
         }
         else {
             score-
-            console.log(score);
+            wrongResultsEl.setAttribute("style", "display: block;");
         }
     })
 
     btn2.addEventListener("click", function(event) {
         if (event.target.innerText === correctAnswers[index]) {
             score+
-            console.log(score);
+            correctResultsEl.setAttribute("style", "display: block;");
         }
         else {
             score-
-            console.log(score);
+            wrongResultsEl.setAttribute("style", "display: block;");
         }
     }) 
 
     btn3.addEventListener("click", function(event) {
         if (event.target.innerText === correctAnswers[index]) {
             score+
-            console.log(score);
+            correctResultsEl.setAttribute("style", "display: block;");
         }
         else {
             score-
-            console.log(score);
+            wrongResultsEl.setAttribute("style", "display: block;");
         }
     })
 
     btn4.addEventListener("click", function(event) {
         if (event.target.innerText === correctAnswers[index]) {
             score+
-            console.log(score);
+            correctResultsEl.setAttribute("style", "display: block;");
         }
         else {
             score-
-            console.log(score);
+            wrongResultsEl.setAttribute("style", "display: block;");
+            
         }
     })
+
 
     buttonOneIndex++;
     buttonOneIndex %= buttonOneAnswers.length;
@@ -217,58 +226,12 @@ function nextQuestion() {
         // last question display score box on next click
         nextButton.setAttribute("style", "display: none;");
         
+        
     }
     
 }
 
 
-//function to tally the score 
-// btn.addEventListener("click", function(event) {
-//     correctAnswersIndex = 0;
-//     if (event.target.textContent === correctAnswers[index]) {
-//        score++
-       
-//        console.log(score);
-//     }
-//     else {
-//         console.log("Incorrect");
-//         score--
-//         console.log(score);
-//     }
-// })
-
-// btn2.addEventListener("click", function(event) {
-//     if (event.target.textContent === correctAnswers[index]) {
-//         score++
-//         console.log(score);
-//     }
-//     else {
-//         console.log("incorrect");
-//         score--
-//     }
-// })
-
-// btn3.addEventListener("click", function(event) {
-//     if (event.target.textContent === correctAnswers[index]) {
-//         score++
-//         console.log(score);
-//     }
-//     else {
-//         console.log("incorrect");
-//         score--
-//     }
-// })
-
-// btn4.addEventListener("click", function(event) {
-//     if (event.target.textContent === correctAnswers[index]) {
-//         score++
-//         console.log(score);
-//     }
-//     else {
-//         console.log("incorrect");
-//         score--
-//     }
-// })
 
 
 
@@ -277,6 +240,12 @@ function nextQuestion() {
 // function to end the quiz 
 function endQuiz() {
 // display score and allow it to be saved to local storage 
+submitButton.setAttribute("style", "display: none;");
+var scoreDisplay = score;
+var scoreEl=document.getElementById("score");
+scoreEl.innerText = "Your score is " + scoreDisplay;
+
+
 }
 
 
@@ -285,6 +254,9 @@ function endQuiz() {
 submitButton.addEventListener("click", function () {
     quizQuestEl.setAttribute("style", "display: none;");
     quizScoreEl.setAttribute("style", "display: block");
+    wrongResultsEl.setAttribute("style", "display: none;");
+    correctResultsEl.setAttribute("style", "display: none;");
+    endQuiz();
 })
 
 
@@ -309,15 +281,16 @@ function countdownTimer() {
         else {
             clearInterval(timeInterval);
             window.alert("Time is up!");
+            // run end game function if time runs out
+            //endQuiz();
         }
     }, 1000);
 }
 
-//if score wrong or correct display result
+
 // if wrong take time off the timer 
-// move to next question
-//go through questions
-//score tally @end
+
+
 //text box for initials
 //save initials and score to local storage
 

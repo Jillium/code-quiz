@@ -70,6 +70,7 @@
     background-color: #6c4c72;
     color: #f2edf3;
     margin: 20px;
+    width: 100px;
     border-radius: 5px;
     padding: 12px;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif';
@@ -82,6 +83,7 @@
 #submit-button {
     background-color: #6c4c72;
     color: #f2edf3;
+    width: 100px;
     margin: 20px;
     border-radius: 5px;
     padding: 12px;
@@ -115,10 +117,18 @@
     align-items: center; 
     text-align: center;
     margin: 100px 20px;
+    
+
 }
 
 #hidden-score-container {
     display: none;
+    border-style: solid;
+    border-color: grey;
+    border-width: 5px;
+    box-shadow: 5px 5px grey;
+    height: 500px;
+    width: 500px;
 }
 
 
@@ -138,6 +148,12 @@
     
 }
 
+#score {
+    margin-top: 20px;
+    font-size: 25px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
 
 
 .answers:hover {
@@ -145,22 +161,30 @@
 }
 
 .results {
-    text-decoration: underline;
-    color: #6c4c72;
+    font-weight: bold;
+    font-size: 25px;
+    color: #129f89;
+    text-align: center;
 }
 
-/* #hidden-correct { */
-    /* display: none; */
-/* } */
 
-/* #hidden-incorrect { */
-    /* display: none; */
-/* } */
+#hidden-correct {
+    display: none;
+}
+
+#hidden-incorrect {
+    display: none;
+}
+
+
 
 
 
 .controls {
     display: flex;
+    align-items: center;
+    justify-content: center;
+
 }
 
 #hidden-controls-container {
