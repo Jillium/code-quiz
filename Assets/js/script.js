@@ -35,14 +35,14 @@ var score = 0;
 
 
 // questions 
-var quizQuestions = ['What is the technique to invisibly graft live stitches together?', 'In addition to the knit stitch, what is the second basic knitting stitch?', 'Where does mohair yarn come from?', 'What is gauge in knitting patterns?'];
+var quizQuestions = ['What is the technique to invisibly graft live stitches together?', 'In addition to the knit stitch, what is the second basic knitting stitch?', 'Where does mohair yarn come from?', 'What words refers to the number of stitches and rows per inch?'];
 
 // answers for each button are stored in separate arrays 
-var buttonOneAnswers = ['Cast On', 'Knot', 'Rabbit', 'Number of stitches and rows per inch', 'Thickness of needles', 'Weight of yarn', 'Width of yarn'];
-var buttonTwoAnswers = ['Kitchener', 'Pearl', 'Cow', 'Thickness of needles'];
-var buttonThreeAnswers = ['Brioche', 'Purl', 'Dog', 'Weight of yarn'];
-var buttonFourAnswers = ['Short Rows', 'Slip', 'Goat', 'Width of yarn'];
-var correctAnswers = ['Kitchener', 'Purl', 'Goat', 'Number of stitches and rows per inch'];
+var buttonOneAnswers = ['Cast On', 'Knot', 'Rabbit', 'Gauge'];
+var buttonTwoAnswers = ['Kitchener', 'Pearl', 'Cow', 'Blocking'];
+var buttonThreeAnswers = ['Brioche', 'Purl', 'Dog', 'Weight'];
+var buttonFourAnswers = ['Grafting', 'Slip', 'Goat', 'Darning'];
+var correctAnswers = ['Kitchener', 'Purl', 'Goat', 'Gauge'];
 
 
 // index for the questions
@@ -273,7 +273,9 @@ submitButton.addEventListener("click", function () {
         correctResultsEl.setAttribute("style", "display: none;");
         controlsEl.setAttribute("style", "display: none;");
         highScoreEl.setAttribute("style", "display: block;");
-    
+      
+      
+        // get tasks from local storage and display them
         savedScore = JSON.parse(localStorage.getItem("user"));
         console.log(savedScore.name);
         console.log(savedScore.score);
@@ -314,27 +316,27 @@ var saveButton = document.getElementById("save-button");
 
 var timeLeft = 5;
 
-// timer countdown function
-function countdownTimer() {
+// // timer countdown function
+// function countdownTimer() {
     
 
-    // call function to be executed every second or 1000 milliseconds
+//     // call function to be executed every second or 1000 milliseconds
 
-    var timeInterval = setInterval(function () {
+//     var timeInterval = setInterval(function () {
 
-        if (timeLeft >= 0) {
-            timerEl.textContent = timeLeft + 's';
-            timeLeft--;
-        }
-        else {
-            clearInterval(timeInterval);
-            window.alert("Time is up!");
-            endQuiz();
-            // run end game function if time runs out
+//         if (timeLeft >= 0) {
+//             timerEl.textContent = timeLeft + 's';
+//             timeLeft--;
+//         }
+//         else {
+//             clearInterval(timeInterval);
+//             window.alert("Time is up!");
+//             endQuiz();
+//             // run end game function if time runs out
             
-        }
-    }, 1000);
-}
+//         }
+//     }, 1000);
+// }
 
 
 
@@ -345,11 +347,10 @@ function countdownTimer() {
 
 
 
-//save initials and score to local storage
+// make a list so that multiple items can be stored to page 
 
 
-//high scores are availble to be viewed via link
-// check local storage for scores
-// update with data from local storage
+
+
 
 quizStart();

@@ -1,4 +1,5 @@
 * {
+    font-weight: bold;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
 
@@ -11,7 +12,9 @@
 
 
 
-
+#question-text {
+    font-size: 25px;
+}
 
 
 .time-left {
@@ -67,7 +70,7 @@
     flex-wrap: wrap;
     align-items: center; 
     text-align: center;
-    margin: 100px 20px;
+    
 }
 
 #hidden-container {
@@ -80,7 +83,7 @@
     flex-wrap: wrap;
     align-items: center; 
     text-align: center;
-    margin: 100px 20px;
+    
     
 
 }
@@ -127,16 +130,23 @@
     font-size: 25px;
     color: #129f89;
     text-align: center;
+    margin-top: 200px;
+    
 }
 
 
 #hidden-correct {
     display: none;
+    
+    
 }
 
 #hidden-incorrect {
     display: none;
+    
+    
 }
+
 
 #initials {
     padding: 5px;
@@ -157,6 +167,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    
 
 }
 
