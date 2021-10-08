@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Assets/css/style.css"
+    <link rel="stylesheet" href="Assets/css/style.css">
     <title>Code Quiz</title>
 </head>
 <body>
  
     <header class="quiz-header">
-        <span class="high-score">See High Scores</span>
+        <span class="high-score"><button type="button" id="high-score-button" class="buttons">See High Scores</button></span>
         <span class="time-left" id="countdown">90s left</span>
     </header>
 
@@ -19,7 +19,7 @@
         <h1 class="quiz-name">Code Quiz</h1>
         <h2 class="quiz-description">Answer some questions about Javascript!</h2>
         <h3 class="quiz-rules">Keep in mind that each incorrect answer will deduct 10s from your time.</h3>
-        <button type="button" id="start-button">Let's Start!</button>
+        <button type="button" id="start-button" class="buttons">Let's Start!</button>
 </div>    
 
 <div class="quiz-question-container">
@@ -42,13 +42,30 @@
 
 <div class="controls">
     <div id="hidden-controls-container">
-    <button type="button" id="next-button">Next</button>
-    <button type="button" id="submit-button">Submit</button>
+    <button type="button" id="next-button" class="buttons">Next</button>
+    <button type="button" id="submit-button" class="buttons">Submit</button>
     </div>
 
     <div class="quiz-score-container">
         <div id="hidden-score-container">
-            <div id="score">Score</div>
+            <div id="score">
+                
+            </div>
+            <div class="formBox">
+            <form>
+            <label for="initials">Initials</label>
+            <input type="text" id="initials" name="initials">
+            <button type="submit" id="save-button">Save</button>
+            </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="high-score-div">
+        <div id="hidden-high-score">
+            <p>High scores display here</p>
+            <button type="button" id="back-button" class="buttons">Go Back</button>
+            <button type="button" id="clear-button" class="buttons">Clear Scores</button>
         </div>
     </div>
     

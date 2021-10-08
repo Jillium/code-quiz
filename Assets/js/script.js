@@ -16,17 +16,21 @@ var correctEl = document.getElementById("correct-answers");
 var btn = document.createElement("button");
 var correctResultsEl = document.getElementById("hidden-correct");
 var wrongResultsEl = document.getElementById("hidden-incorrect");
-btn.className += "answers";
+var highScoreButton = document.getElementById("high-score-button");
+var highScoreEl = document.getElementById("hidden-high-score");
+
+btn.className += "buttons";
 var btn2 = document.createElement("button");
-btn2.className += "answers";
+btn2.className += "buttons";
 let btn3 = document.createElement("button");
-btn3.className += "answers";
+btn3.className += "buttons";
 let btn4 = document.createElement("button");
-btn4.className += "answers";
+btn4.className += "buttons";
 
-
+var initialsInput = document.getElementById("initials");
 
 var score = 0;
+
 
 
 
@@ -39,11 +43,7 @@ var buttonTwoAnswers = ['Kitchener', 'Pearl', 'Cow', 'Thickness of needles'];
 var buttonThreeAnswers = ['Brioche', 'Purl', 'Dog', 'Weight of yarn'];
 var buttonFourAnswers = ['Short Rows', 'Slip', 'Goat', 'Width of yarn'];
 var correctAnswers = ['Kitchener', 'Purl', 'Goat', 'Number of stitches and rows per inch'];
-//correct answers for each question
-// var questionOneCorrectAnswer = 'Kitchener';
-// var questionTwoCorrectAnswer = 'Purl';
-// var questionThreeCorrectAnswer = 'Goat';
-// var questionFourCorrectAnswer = 'Number of stitches and rows per inch';
+
 
 // index for the questions
 var index = 0;
@@ -243,11 +243,13 @@ function endQuiz() {
 submitButton.setAttribute("style", "display: none;");
 var scoreDisplay = score;
 var scoreEl=document.getElementById("score");
-scoreEl.innerText = "Your score is " + scoreDisplay;
+scoreEl.innerText = "All Done! Your score is " + scoreDisplay;
 
 
 }
 
+
+    
 
 
 
@@ -256,15 +258,61 @@ submitButton.addEventListener("click", function () {
     quizScoreEl.setAttribute("style", "display: block");
     wrongResultsEl.setAttribute("style", "display: none;");
     correctResultsEl.setAttribute("style", "display: none;");
+    nextButton.setAttribute("style", "display: none;");
     endQuiz();
 })
 
 
+// pull values from local storage to display when high score button is clicked
+
+    highScoreButton.addEventListener("click", function () {
+        quizQuestEl.setAttribute("style", "display: none;");
+        quizDivEl.setAttribute("style", "display:none");
+        quizScoreEl.setAttribute("style", "display: none;");
+        wrongResultsEl.setAttribute("style", "display: none;");
+        correctResultsEl.setAttribute("style", "display: none;");
+        controlsEl.setAttribute("style", "display: none;");
+        highScoreEl.setAttribute("style", "display: block;");
+    
+        savedScore = JSON.parse(localStorage.getItem("user"));
+        console.log(savedScore.name);
+        console.log(savedScore.score);
+        highScoreEl.innerText = savedScore.name + savedScore.score;
+        
+
+})
+
+
+// save values to local storage 
+var saveButton = document.getElementById("save-button");
+
+
+   saveButton.addEventListener("click", function (event) {
+       event.preventDefault();
+   
+    // get values from the form
+    var initials = initialsInput.value.trim();
+    
+    // if values are valid
+
+    if (!initials) {
+        alert("Please input your initials");
+    }
+    // save them in local storage
+    var savedScore = {
+        name: initials,
+        score: score
+    };
+
+    localStorage.setItem("user", JSON.stringify(savedScore));
+    
+    
+    });
 
 
 
 
-var timeLeft = 90;
+var timeLeft = 5;
 
 // timer countdown function
 function countdownTimer() {
@@ -281,20 +329,27 @@ function countdownTimer() {
         else {
             clearInterval(timeInterval);
             window.alert("Time is up!");
+            endQuiz();
             // run end game function if time runs out
-            //endQuiz();
+            
         }
     }, 1000);
 }
 
 
+
+
 // if wrong take time off the timer 
 
+//make quiz end when time is up
 
-//text box for initials
+
+
 //save initials and score to local storage
 
 
 //high scores are availble to be viewed via link
+// check local storage for scores
+// update with data from local storage
 
 quizStart();

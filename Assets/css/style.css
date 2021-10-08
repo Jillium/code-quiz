@@ -10,15 +10,9 @@
 }
 
 
-.high-score {
-  color: #6c4c72;
-  font-size: 25px;
-}
 
-.high-score:hover {
-    color: #dac700;
-    
-}
+
+
 
 .time-left {
     color: #129f89;
@@ -53,46 +47,16 @@
     font-weight: lighter;
 }
 
-#start-button {
-    background-color: #6c4c72;
-    color: #f2edf3;
-    margin: 20px;
-    border-radius: 5px;
-    padding: 12px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
 
-#start-button:hover {
-    background-color: #dac700;
-}
 
-#next-button {
-    background-color: #6c4c72;
-    color: #f2edf3;
-    margin: 20px;
-    width: 100px;
-    border-radius: 5px;
-    padding: 12px;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif';
-}
 
-#next-button:hover {
-    background-color: #dac700;
-}
 
-#submit-button {
-    background-color: #6c4c72;
-    color: #f2edf3;
-    width: 100px;
-    margin: 20px;
-    border-radius: 5px;
-    padding: 12px;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif';
-}
 
-#submit-button:hover {
-    background-color: #dac700;
-}
+
+
+
+
+
 
 #hidden-container {
     display:  none;
@@ -134,18 +98,18 @@
 
 
 
-.answers {
-    margin: 20px;
+.buttons {
     background-color: #6c4c72;
     color: #f2edf3;
-    width: 200px;
-    height: 40px;
+    width: 100px;
+    margin: 20px;
     border-radius: 5px;
     padding: 12px;
-    text-align: center;
-    align-items: center;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif';
+}
+
+.buttons:hover {
+    background-color: #dac700;
 }
 
 #score {
@@ -156,9 +120,7 @@
 
 
 
-.answers:hover {
-    background-color: #dac700;
-}
+
 
 .results {
     font-weight: bold;
@@ -176,8 +138,19 @@
     display: none;
 }
 
+#initials {
+    padding: 5px;
+    margin: 10px;
+}
 
+.high-score-div {
+    display: flex;
+    text-align: center;
+}
 
+#hidden-high-score {
+    display: none;
+}
 
 
 .controls {
