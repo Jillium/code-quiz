@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,93 +8,99 @@
     <link rel="stylesheet" href="Assets/css/style.css">
     <title>Code Quiz</title>
 </head>
+
 <body>
- 
+
     <header class="quiz-header">
-        <span class="high-score"><button type="button" id="high-score-button" class="buttons">See High Scores</button></span>
-        <span class="time-left" id="countdown">90s left</span>
+        <span class="high-score"><button type="button" id="high-score-button" class="buttons">See High
+                Scores</button></span>
+        <span class="time-left" id="countdown">60s left</span>
     </header>
 
 
-<div id="quiz-name-div">
-        <h1 class="quiz-name">Code Quiz</h1>
-        <h2 class="quiz-description">Answer some questions about Javascript!</h2>
+    <div id="quiz-name-div">
+        <h1 class="quiz-name"></h1>
+        <h2 class="quiz-description">Answer some questions about Knitting!</h2>
         <h3 class="quiz-rules">Keep in mind that each incorrect answer will deduct 10s from your time.</h3>
         <button type="button" id="start-button" class="buttons">Let's Start!</button>
-</div>    
-
-<div class="quiz-question-container">
-    <div id="hidden-container">
-    <div id="question-text"></div>
-    <div id="options">
-      
     </div>
-    <div id="correct-answers"></div>
-    </div>
-</div>
 
+    <div class="quiz-question-container">
+        <div id="hidden-container">
+            <div id="question-text"></div>
+            <div id="options">
 
-
-
-
-
-<div class="controls">
-    <div id="hidden-controls-container">
-        <div class="results">
-            <span id="hidden-correct">Correct</span>
-            <span id="hidden-incorrect">Incorrect</span>
+            </div>
+            <div id="correct-answers"></div>
         </div>
-    <button type="button" id="next-button" class="buttons">Next</button>
-    <button type="button" id="submit-button" class="buttons">Submit</button>
     </div>
 
-   
 
-    <div class="quiz-score-container">
-        <div id="hidden-score-container">
-            <div id="score">
-                
+
+
+
+
+    <div class="controls">
+        <div id="hidden-controls-container">
+            <div class="results">
+                <span id="hidden-correct">Correct</span>
+                <span id="hidden-incorrect">Incorrect</span>
+            </div>
+            <button type="button" id="next-button" class="buttons">Next</button>
+            <button type="button" id="submit-button" class="buttons">Submit</button>
+        </div>
     </div>
-        <div class="formBox">
-            <form>
-            <label for="initials">Initials</label>
-            <input type="text" id="initials" name="initials">
-            <button type="submit" id="save-button">Save</button>
-            </form>
+
+
+        <div class="quiz-score-container">
+            <div id="hidden-score-container">
+                <div id="score">
+
+                </div>
+                <div class="formBox">
+                    <form>
+                        <label for="initials">Initials</label>
+                        <input type="text" id="initials" name="initials">
+                        <button type="submit" id="save-button">Save</button>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="high-score-div">
-        <div id="hidden-high-score">
-            <!-- make a list item to store multiple high scores-->
-            <p>High scores display here</p>
-            <button type="button" id="back-button" class="buttons">Go Back</button>
-            <button type="button" id="clear-button" class="buttons">Clear Scores</button>
+        <div class="high-score-div">
+            
+            <div id="hidden-high-score">
+                <h2> High Scores </h2>
+                <ul id="score-list">
+                    
+                </ul>
+
+                <button type="button" id="play-again" class="buttons">Play Again</button>
+                
+            </div>
         </div>
-    </div>
+
     
-</div>
-</div>
-
-
     
 
 
-    
-   
-
-   
-
-    
-
-   
 
 
-    
+
+
+
+
+
+
+
+
+
+
+
+
     </main>
 
-    
+
 
 
 
@@ -101,4 +108,5 @@
 
     <script src="Assets/js/script.js"></script>
 </body>
+
 </html>

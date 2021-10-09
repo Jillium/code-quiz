@@ -18,6 +18,7 @@ var correctResultsEl = document.getElementById("hidden-correct");
 var wrongResultsEl = document.getElementById("hidden-incorrect");
 var highScoreButton = document.getElementById("high-score-button");
 var highScoreEl = document.getElementById("hidden-high-score");
+var playAgainButton = document.getElementById("play-again");
 
 btn.className += "buttons";
 var btn2 = document.createElement("button");
@@ -30,6 +31,7 @@ btn4.className += "buttons";
 var initialsInput = document.getElementById("initials");
 
 var score = 0;
+var timeInterval 
 
 
 
@@ -65,71 +67,76 @@ function quizStart() {
         quizQuestEl.setAttribute("style", "display: block");
         controlsEl.setAttribute("style", "display: block;");
         questionTextEl.innerText = quizQuestions[0];
-        
+
         btn.textContent = buttonOneAnswers[0];
         answerEl.appendChild(btn);
-        
+
         btn2.textContent = buttonTwoAnswers[0];
         answerEl.appendChild(btn2);
-        
+
         btn3.textContent = buttonThreeAnswers[0];
         answerEl.appendChild(btn3);
-        
+
         btn4.textContent = buttonFourAnswers[0];
         answerEl.appendChild(btn4);
-       
-      
-        
-    btn.addEventListener("click", function (event) {
-        if (event.target.innerText === correctAnswers[index]) {
-            score++;
-            correctResultsEl.setAttribute("style", "display: block;");
-            
-        }
-        else {
-            score--;
-            wrongResultsEl.setAttribute("style", "display: block;");
-        }
-    })
-
-    btn2.addEventListener("click", function(event) {
-        if (event.target.innerText === correctAnswers[index]) {
-            score++;
-            correctResultsEl.setAttribute("style", "display: block;");
-            
-        }
-        else {
-            score--;
-            
-        }
-    }) 
-
-    btn3.addEventListener("click", function(event) {
-        if (event.target.innerText === correctAnswers[index]) {
-            score++;
-            correctResultsEl.setAttribute("style", "display: block;");
-        }
-        else {
-            score--;
-            wrongResultsEl.setAttribute("style", "display: block;");
-        }
-    })
-
-    btn4.addEventListener("click", function(event) {
-        if (event.target.innerText === correctAnswers[index]) {
-            score++;
-            correctResultsEl.setAttribute("style", "display: block;");
-        }
-        else {
-            score--;
-            wrongResultsEl.setAttribute("style", "display: block;");
-        }
-    })
-        
 
 
 
-      
+        btn.addEventListener("click", function (event) {
+            if (event.target.innerText === correctAnswers[index]) {
+                score++;
+                correctResultsEl.setAttribute("style", "display: block;");
+
+            }
+            else {
+                score--;
+                wrongResultsEl.setAttribute("style", "display: block;");
+                timeLeft = timeLeft - 3;
+            }
+        })
+
+        btn2.addEventListener("click", function (event) {
+            if (event.target.innerText === correctAnswers[index]) {
+                score++;
+                correctResultsEl.setAttribute("style", "display: block;");
+
+            }
+            else {
+                score--;
+                wrongResultsEl.setAttribute("style", "display: block;");
+                timeLeft = timeLeft - 3;
+
+            }
+        })
+
+        btn3.addEventListener("click", function (event) {
+            if (event.target.innerText === correctAnswers[index]) {
+                score++;
+                correctResultsEl.setAttribute("style", "display: block;");
+            }
+            else {
+                score--;
+                wrongResultsEl.setAttribute("style", "display: block;");
+                timeLeft = timeLeft - 3;
+            }
+        })
+
+        btn4.addEventListener("click", function (event) {
+            if (event.target.innerText === correctAnswers[index]) {
+                score++;
+                correctResultsEl.setAttribute("style", "display: block;");
+            }
+            else {
+                score--;
+                wrongResultsEl.setAttribute("style", "display: block;");
+                timeLeft = timeLeft - 3;
+            }
+        })
+
+
+
+
+
 
 
 
@@ -153,50 +160,54 @@ function nextQuestion() {
 
     correctResultsEl.setAttribute("style", "display: none;");
     wrongResultsEl.setAttribute("style", "display: none;");
-    
+
 
     btn.addEventListener("click", function (event) {
         if (event.target.innerText === correctAnswers[index]) {
-            score+
-            correctResultsEl.setAttribute("style", "display: block;");
+            score +
+                correctResultsEl.setAttribute("style", "display: block;");
         }
         else {
-            score-
-            wrongResultsEl.setAttribute("style", "display: block;");
+            score -
+                wrongResultsEl.setAttribute("style", "display: block;");
+                timeLeft = timeLeft - 3;
         }
     })
 
-    btn2.addEventListener("click", function(event) {
+    btn2.addEventListener("click", function (event) {
         if (event.target.innerText === correctAnswers[index]) {
-            score+
-            correctResultsEl.setAttribute("style", "display: block;");
+            score +
+                correctResultsEl.setAttribute("style", "display: block;");
         }
         else {
-            score-
-            wrongResultsEl.setAttribute("style", "display: block;");
-        }
-    }) 
-
-    btn3.addEventListener("click", function(event) {
-        if (event.target.innerText === correctAnswers[index]) {
-            score+
-            correctResultsEl.setAttribute("style", "display: block;");
-        }
-        else {
-            score-
-            wrongResultsEl.setAttribute("style", "display: block;");
+            score -
+                wrongResultsEl.setAttribute("style", "display: block;");
+                timeLeft = timeLeft - 3;
         }
     })
 
-    btn4.addEventListener("click", function(event) {
+    btn3.addEventListener("click", function (event) {
         if (event.target.innerText === correctAnswers[index]) {
-            score+
-            correctResultsEl.setAttribute("style", "display: block;");
+            score +
+                correctResultsEl.setAttribute("style", "display: block;");
         }
         else {
-            score-
-            wrongResultsEl.setAttribute("style", "display: block;");
-            
+            score -
+                wrongResultsEl.setAttribute("style", "display: block;");
+                timeLeft = timeLeft - 3;
+        }
+    })
+
+    btn4.addEventListener("click", function (event) {
+        if (event.target.innerText === correctAnswers[index]) {
+            score +
+                correctResultsEl.setAttribute("style", "display: block;");
+        }
+        else {
+            score -
+                wrongResultsEl.setAttribute("style", "display: block;");
+                timeLeft = timeLeft - 3;
+
         }
     })
 
@@ -204,7 +215,7 @@ function nextQuestion() {
     buttonOneIndex++;
     buttonOneIndex %= buttonOneAnswers.length;
     btn.textContent = buttonOneAnswers[index];
-   
+
 
     buttonTwoIndex++
     buttonTwoIndex %= buttonTwoAnswers.length;
@@ -217,16 +228,16 @@ function nextQuestion() {
     buttonFourIndex++
     buttonFourIndex %= buttonFourAnswers.length;
     btn4.textContent = buttonFourAnswers[index];
-    
-    
-    if (index < quizQuestions.length-1) {
+
+
+    if (index < quizQuestions.length - 1) {
         // there are still questions left
     }
-    else  {
+    else {
         // last question display score box on next click
         nextButton.setAttribute("style", "display: none;");
         
-        
+
     }
     
 }
@@ -239,20 +250,27 @@ function nextQuestion() {
 
 // function to end the quiz 
 function endQuiz() {
-// display score and allow it to be saved to local storage 
-submitButton.setAttribute("style", "display: none;");
-var scoreDisplay = score;
-var scoreEl=document.getElementById("score");
-scoreEl.innerText = "All Done! Your score is " + scoreDisplay;
+    // display score and allow it to be saved to local storage 
+    submitButton.setAttribute("style", "display: none;");
+    quizQuestEl.setAttribute("style", "display: none;");
+    wrongResultsEl.setAttribute("style", "display: none;");
+    correctResultsEl.setAttribute("style", "display: none;");
+    nextButton.setAttribute("style", "display:none;");
+    quizScoreEl.setAttribute("style", "display: block;");
+    quizDivEl.setAttribute("style", "display:none;");
 
+    var scoreDisplay = score;
+    var scoreEl = document.getElementById("score");
+    scoreEl.innerText = "All Done! Your score is " + scoreDisplay;
+    clearInterval(timeInterval);
 
 }
 
 
-    
 
 
 
+// button to submit when questions are finished 
 submitButton.addEventListener("click", function () {
     quizQuestEl.setAttribute("style", "display: none;");
     quizScoreEl.setAttribute("style", "display: block");
@@ -260,27 +278,35 @@ submitButton.addEventListener("click", function () {
     correctResultsEl.setAttribute("style", "display: none;");
     nextButton.setAttribute("style", "display: none;");
     endQuiz();
+    
 })
 
 
 // pull values from local storage to display when high score button is clicked
 
-    highScoreButton.addEventListener("click", function () {
-        quizQuestEl.setAttribute("style", "display: none;");
-        quizDivEl.setAttribute("style", "display:none");
-        quizScoreEl.setAttribute("style", "display: none;");
-        wrongResultsEl.setAttribute("style", "display: none;");
-        correctResultsEl.setAttribute("style", "display: none;");
-        controlsEl.setAttribute("style", "display: none;");
-        highScoreEl.setAttribute("style", "display: block;");
-      
-      
-        // get tasks from local storage and display them
-        savedScore = JSON.parse(localStorage.getItem("user"));
-        console.log(savedScore.name);
-        console.log(savedScore.score);
-        highScoreEl.innerText = savedScore.name + savedScore.score;
-        
+highScoreButton.addEventListener("click", function () {
+    quizQuestEl.setAttribute("style", "display: none;");
+    quizDivEl.setAttribute("style", "display:none");
+    quizScoreEl.setAttribute("style", "display: none;");
+    wrongResultsEl.setAttribute("style", "display: none;");
+    correctResultsEl.setAttribute("style", "display: none;");
+    controlsEl.setAttribute("style", "display: none;");
+    highScoreEl.setAttribute("style", "display: block;");
+
+
+    // get tasks from local storage and display them
+    savedScore = JSON.parse(localStorage.getItem("user"));
+    var scoreList = document.getElementById("score-list");
+    scoreList.setAttribute("style", "list-style: none;");
+    var listItemEl = document.createElement("li");
+    listItemEl.setAttribute("style", "align-items: center;");
+    listItemEl.innerText = savedScore.name + " " + savedScore.score;
+    scoreList.appendChild(listItemEl);
+
+    // highScoreEl.innerText = savedScore.name + "  " + savedScore.score;
+
+    
+
 
 })
 
@@ -289,12 +315,12 @@ submitButton.addEventListener("click", function () {
 var saveButton = document.getElementById("save-button");
 
 
-   saveButton.addEventListener("click", function (event) {
-       event.preventDefault();
-   
+saveButton.addEventListener("click", function (event) {
+    event.preventDefault();
+
     // get values from the form
-    var initials = initialsInput.value.trim();
-    
+    initials = initialsInput.value.trim();
+
     // if values are valid
 
     if (!initials) {
@@ -307,47 +333,55 @@ var saveButton = document.getElementById("save-button");
     };
 
     localStorage.setItem("user", JSON.stringify(savedScore));
+
+
+});
+// button to play the quiz again
+playAgainButton.addEventListener("click", function() {
+    quizDivEl.setAttribute("style", "display: block;");
+    quizScoreEl.setAttribute("style", "display: none;");
+    highScoreEl.setAttribute("style", "display: none;");
     
-    
-    });
+});
 
 
 
 
-var timeLeft = 5;
 
-// // timer countdown function
-// function countdownTimer() {
-    
+var timeLeft = 60;
 
-//     // call function to be executed every second or 1000 milliseconds
-
-//     var timeInterval = setInterval(function () {
-
-//         if (timeLeft >= 0) {
-//             timerEl.textContent = timeLeft + 's';
-//             timeLeft--;
-//         }
-//         else {
-//             clearInterval(timeInterval);
-//             window.alert("Time is up!");
-//             endQuiz();
-//             // run end game function if time runs out
-            
-//         }
-//     }, 1000);
-// }
+// timer countdown function
+function countdownTimer() {
 
 
+    // call function to be executed every second or 1000 milliseconds
 
+    timeInterval = setInterval(function () {
 
-// if wrong take time off the timer 
+        if (timeLeft >= 0) {
+            timerEl.textContent = timeLeft + 's';
+            timeLeft--;
+        }
+        else {
+            clearInterval(timeInterval);
+            window.alert("Time is up!");
+            endQuiz();
+            // run end game function if time runs out
 
-//make quiz end when time is up
+        }
+    }, 1000);
+}
 
 
 
-// make a list so that multiple items can be stored to page 
+
+
+
+
+
+
+
+
 
 
 

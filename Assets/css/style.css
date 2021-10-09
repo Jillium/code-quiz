@@ -156,6 +156,7 @@
 .high-score-div {
     display: flex;
     text-align: center;
+    justify-content: center;
 }
 
 #hidden-high-score {
