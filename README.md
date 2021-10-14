@@ -12,6 +12,6 @@ A quiz to further my javascript skills and manipulating the DOM
 ## Website
 https://jillium.github.io/code-quiz/
 
-<img src ="assets/screenshot.png">
+<img src =".assets/screenshot.png">
 
 ## Made with ❤️ by Jill
